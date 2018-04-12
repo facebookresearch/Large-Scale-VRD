@@ -1,0 +1,52 @@
+DATASET: visual_genome_spo_jn_mg
+NUM_DEVICES: 2
+MODEL:
+  TYPE: VGG16_reldn_fast_rcnn_conv4_spo_for_p
+  SUBTYPE: embd_fusion_w_relu_yall
+  SPECS: 2gpus_vgg16_softmaxed_triplet_no_last_l2norm_trainval_w_cluster
+  LOSS_TYPE: SOFTMAXED_TRIPLET  # EUC, SOFTMAX
+  MODEL_NAME: VGG16_rel_softmaxed_triplet
+  BN_MOMENTUM: 0.9
+  BN_EPSILON: 1.0000001e-5
+  FC_INIT_STD: 0.01
+  ALLOW_INPLACE_SUM: True
+  MEMONGER: True
+VISUAL_EMBEDDING:
+  WEIGHT_SHARING:  SBJ_OBJ_SHARED #, all_unshared,  sbj_obj_shared, all_unshared
+  L2_NORMALIZE: True
+TEXT_EMBEDDING:
+  HIDDEN_LAYERS: 1  # 1, 0
+  L2_NORMALIZE: True
+OUTPUT_EMBEDDING_DIM: 1024
+TRAIN:
+  PARAMS_FILE: /checkpoint02/zhangjixyz/data/coco_models/vgg16_model_final.pkl
+  DATA_TYPE: train
+  BBOX_REG: False
+  BBOX_NORMALIZE_TARGETS: False  # No bbox regression at the end
+  USE_FLIPPED: True
+  BATCH_SIZE_PER_IM: 128
+  FG_FRACTION: 0.25
+  FG_THRESH: 0.5
+  # SCALE_JITTER_TYPE: googleNet
+  EVALUATION_FREQUENCY: 100  # 50000
+TEST:
+  WEIGHTS: /checkpoint02/zhangjixyz/tmp_reldn/visual_genome_spo_jn_mg/VGG16_reldn_fast_rcnn_conv4_spo_for_p/embd_fusion_w_relu_yall/4gpus_vgg16_softmaxed_triplet_no_last_l2norm_trainval_w_cluster/train/latest_final.pkl
+  DATA_TYPE: test
+  PROPOSAL_FILE: /checkpoint02/zhangjixyz/tmp_reldn/proposals/visual_genome/gt_proposals_test.pkl
+  BBOX_REG: False
+SOLVER:
+  BASE_LR: 0.001
+  STEP_SIZES: [500000]
+  NUM_ITERATIONS: 750000
+  WEIGHT_DECAY: 0.0005
+  WEIGHT_DECAY_BN: 0.0
+  MOMENTUM: 0.9
+  GAMMA: 0.1
+  NESTEROV: True
+  WARM_UP_ITERS: 0  # 10000
+  WARM_UP_LR: 0.0001
+CHECKPOINT:
+  # DIR: /checkpoint02/zhangjixyz/tmp_reldn
+  CHECKPOINT_PERIOD: 2500
+METRICS:
+  EVALUATE_FIRST_N_WAYS: False

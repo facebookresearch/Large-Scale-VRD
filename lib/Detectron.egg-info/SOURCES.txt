@@ -1,0 +1,7 @@
+setup.py
+Detectron.egg-info/PKG-INFO
+Detectron.egg-info/SOURCES.txt
+Detectron.egg-info/dependency_links.txt
+Detectron.egg-info/top_level.txt
+utils/cython_bbox.c
+utils/cython_nms.c
