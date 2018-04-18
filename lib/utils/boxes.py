@@ -54,6 +54,15 @@ import utils.cython_nms as cython_nms
 bbox_overlaps = cython_bbox.bbox_overlaps
 
 
+# By Ji on 10/14/2017
+def box_union(box1, box2):
+    xmin = min(box1[0], box2[0])
+    ymin = min(box1[1], box2[1])
+    xmax = max(box1[2], box2[2])
+    ymax = max(box1[3], box2[3])
+    return [xmin, ymin, xmax, ymax]
+
+
 def boxes_area(boxes):
     """Compute the area of an array of boxes."""
     w = (boxes[:, 2] - boxes[:, 0] + 1)

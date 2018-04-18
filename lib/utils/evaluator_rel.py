@@ -567,19 +567,19 @@ class Evaluator():
                 print('triplet rr: {:f}'.format(self.tri_rr))
                 print('triplet mr: {:f}'.format(self.tri_mr))
 
-            # print('sbj top 1 accuracy: {:f}'.format(self.sbj_top1_acc))
-            # print('sbj top 5 accuracy: {:f}'.format(self.sbj_top5_acc))
-            # print('sbj top 10 accuracy: {:f}'.format(self.sbj_top10_acc))
-            # if cfg.DATASET.find('vrd') < 0:
-            #     print('sbj rr: {:f}'.format(self.sbj_rr))
-            #     print('sbj mr: {:f}'.format(self.sbj_mr))
-            #
-            # print('obj top 1 accuracy: {:f}'.format(self.obj_top1_acc))
-            # print('obj top 5 accuracy: {:f}'.format(self.obj_top5_acc))
-            # print('obj top 10 accuracy: {:f}'.format(self.obj_top10_acc))
-            # if cfg.DATASET.find('vrd') < 0:
-            #     print('obj rr: {:f}'.format(self.obj_rr))
-            #     print('obj mr: {:f}'.format(self.obj_mr))
+            print('sbj top 1 accuracy: {:f}'.format(self.sbj_top1_acc))
+            print('sbj top 5 accuracy: {:f}'.format(self.sbj_top5_acc))
+            print('sbj top 10 accuracy: {:f}'.format(self.sbj_top10_acc))
+            if cfg.DATASET.find('vrd') < 0:
+                print('sbj rr: {:f}'.format(self.sbj_rr))
+                print('sbj mr: {:f}'.format(self.sbj_mr))
+
+            print('obj top 1 accuracy: {:f}'.format(self.obj_top1_acc))
+            print('obj top 5 accuracy: {:f}'.format(self.obj_top5_acc))
+            print('obj top 10 accuracy: {:f}'.format(self.obj_top10_acc))
+            if cfg.DATASET.find('vrd') < 0:
+                print('obj rr: {:f}'.format(self.obj_rr))
+                print('obj mr: {:f}'.format(self.obj_mr))
 
             print('rel top 1 accuracy: {:f}'.format(self.rel_top1_acc))
             print('rel top 5 accuracy: {:f}'.format(self.rel_top5_acc))
@@ -588,21 +588,22 @@ class Evaluator():
                 print('rel rr: {:f}'.format(self.rel_rr))
                 print('rel mr: {:f}'.format(self.rel_mr))
 
-        for i, rel_k in enumerate(self.all_rel_k):
-            print('k = {}:'.format(rel_k))
-            self.eval_recall_new(
-                self.all_det_labels[i], self.all_det_boxes[i],
-                self.all_gt_labels[i], self.all_gt_boxes[i], 'spo', 50)
-            self.eval_recall_new(
-                self.all_det_labels[i], self.all_det_boxes[i],
-                self.all_gt_labels[i], self.all_gt_boxes[i], 'spo', 100)
+        if cfg.DATASET.find('vrd') >= 0:
+            for i, rel_k in enumerate(self.all_rel_k):
+                print('k = {}:'.format(rel_k))
+                self.eval_recall_new(
+                    self.all_det_labels[i], self.all_det_boxes[i],
+                    self.all_gt_labels[i], self.all_gt_boxes[i], 'spo', 50)
+                self.eval_recall_new(
+                    self.all_det_labels[i], self.all_det_boxes[i],
+                    self.all_gt_labels[i], self.all_gt_boxes[i], 'spo', 100)
 
-            self.eval_union_recall_new(
-                self.all_det_labels[i], self.all_det_boxes[i],
-                self.all_gt_labels[i], self.all_gt_boxes[i], 50)
-            self.eval_union_recall_new(
-                self.all_det_labels[i], self.all_det_boxes[i],
-                self.all_gt_labels[i], self.all_gt_boxes[i], 100)
+                self.eval_union_recall_new(
+                    self.all_det_labels[i], self.all_det_boxes[i],
+                    self.all_gt_labels[i], self.all_gt_boxes[i], 50)
+                self.eval_union_recall_new(
+                    self.all_det_labels[i], self.all_det_boxes[i],
+                    self.all_gt_labels[i], self.all_gt_boxes[i], 100)
 
         all_accs = {}
         for key, val in self.__dict__.items():

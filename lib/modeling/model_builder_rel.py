@@ -132,7 +132,7 @@ def build_model(model, split):
 
     odir, cdir = get_dirs(model, split)
 
-    if split == 'train':
+    if split != 'test':
         setup_model(model, cfg.TRAIN.PARAMS_FILE, split)
     else:
         setup_model(model, None, split)

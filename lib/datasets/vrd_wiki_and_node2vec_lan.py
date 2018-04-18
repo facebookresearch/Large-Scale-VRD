@@ -25,7 +25,6 @@ logger = logging.getLogger(__name__)
 
 class vrd_wiki_and_node2vec_lan():
     def __init__(self):
-        cfg.DATA_DIR = '/mnt/vol/gfsai-east/ai-group/users/zhangjixyz/data/shdet'
         self._data_path = os.path.join(cfg.DATA_DIR, 'Visual_Relation_Detection')
         assert os.path.exists(self._data_path), \
             'Path does not exist: {}'.format(self._data_path)
