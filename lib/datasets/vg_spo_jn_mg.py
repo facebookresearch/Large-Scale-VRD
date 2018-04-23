@@ -22,9 +22,9 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class visual_genome_spo_jn_mg(imdb_rel):
+class vg_spo_jn_mg(imdb_rel):
     def __init__(self, image_set):
-        imdb_rel.__init__(self, 'visual_genome_spo_jn_mg_' + image_set)
+        imdb_rel.__init__(self, 'vg_spo_jn_mg_' + image_set)
         self._image_set = image_set
         self._data_path = os.path.join(cfg.DATA_DIR, 'Visual_Genome')
 
@@ -80,8 +80,7 @@ class visual_genome_spo_jn_mg(imdb_rel):
 
     def get_widths_and_heights(self):
         cache_file = os.path.join(
-            '/datasets01/large_scale_VRD',
-            'Visual_Genome', 'visual_genome_' + self._image_set + '_image_sizes.pkl')
+            self._data_path, 'visual_genome_' + self._image_set + '_image_sizes.pkl')
         if os.path.exists(cache_file):
             with open(cache_file, 'rb') as fid:
                 sizes = cPickle.load(fid)

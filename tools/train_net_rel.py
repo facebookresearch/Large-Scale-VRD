@@ -133,21 +133,6 @@ if __name__ == '__main__':
 
     for curr_iter in range(start_model_iter, cfg.SOLVER.NUM_ITERATIONS):
 
-        # all_prd_word_vecs = workspace.FetchBlob(
-        #     'gpu_{}/all_prd_word_vecs'.format(cfg.ROOT_DEVICE_ID))
-        # logger.info('all_prd_word_vecs.shape: {}'.format(all_prd_word_vecs.shape))
-        # # logger.info('all_prd_word_vecs: {}'.format(all_prd_word_vecs))
-
-        # lang_sbj_and_obj_w = workspace.FetchBlob(
-        #     'gpu_{}/lang_sbj_and_obj_w'.format(cfg.ROOT_DEVICE_ID))
-        # logger.info('lang_sbj_and_obj_w.shape: {}'.format(lang_sbj_and_obj_w.shape))
-        # # logger.info('lang_sbj_and_obj_w: {}'.format(lang_sbj_and_obj_w))
-        #
-        # lang_sbj_and_obj_b = workspace.FetchBlob(
-        #     'gpu_{}/lang_sbj_and_obj_b'.format(cfg.ROOT_DEVICE_ID))
-        # logger.info('lang_sbj_and_obj_b.shape: {}'.format(lang_sbj_and_obj_b.shape))
-        # # logger.info('lang_sbj_and_obj_b: {}'.format(lang_sbj_and_obj_b))
-
         lr = model_builder_rel.add_variable_stepsize_lr(
             curr_iter + 1, cfg.NUM_DEVICES, lr_iters, start_model_iter + 1,
             train_model, prev_checkpointed_lr

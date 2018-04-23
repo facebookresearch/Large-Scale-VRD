@@ -29,9 +29,9 @@ def get_gt_val_test_proposals(split, gt_roidb):
     if cfg.DATASET.find('vrd') >= 0:
         data_name = 'vrd'
     else:
-        data_name = 'visual_genome'
+        data_name = 'vg'
     proposal_file = os.path.join(
-        cfg.OUTPUT_DIR, 'proposals', data_name, 'gt_proposals_' + split + '.pkl')
+        cfg.DATA_DIR, 'proposals', data_name, 'gt_proposals_' + split + '.pkl')
     if os.path.exists(proposal_file):
         logger.info('Loading existing proposals from {}'.format(proposal_file))
         with open(proposal_file, 'rb') as fid:

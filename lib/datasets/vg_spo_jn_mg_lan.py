@@ -19,7 +19,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class visual_genome_spo_jn_mg_lan():
+class vg_spo_jn_mg_lan():
     def __init__(self):
         # cfg.DATA_DIR = '/datasets01/large_scale_VRD'
         self._data_path = os.path.join(cfg.DATA_DIR, 'Visual_Genome')
@@ -52,17 +52,6 @@ class visual_genome_spo_jn_mg_lan():
             self.prd_vecs = landb['prd_vecs']
             return
 
-        # # 1. get closest negative names for each name
-        # with open(self._data_path + '/obj_name_to_closest_neg_names.json') as \
-        #         obj_negs_f:
-        #     obj_neg_names = json.load(obj_negs_f)
-        # # print 'obj_neg_names.keys(): ', obj_neg_names.keys()
-        #
-        # with open(self._data_path + '/prd_name_to_closest_neg_names.json') as \
-        #         prd_negs_f:
-        #     prd_neg_names = json.load(prd_negs_f)
-        # # print 'prd_neg_names.keys(): ', prd_neg_names.keys()
-
         self.model = None
         self.chars_to_remove = None
         self.word_vec_mean = None
@@ -79,45 +68,7 @@ class visual_genome_spo_jn_mg_lan():
             self.model.vocab[new_key] = self.model.vocab.pop(key)
         print('Words converted to lowercase.')
 
-        # # maps for negative word vectors
-        # self.obj_name_to_neg_vecs = {}
-        # self.prd_name_to_neg_vecs = {}
-        #
-        # for name, neg_names in obj_neg_names.items():
-        #     obj_neg_vecs = \
-        #         np.zeros((len(neg_names), cfg.INPUT_LANG_EMBEDDING_DIM),
-        #                  dtype=np.float32)
-        #     for ix, neg_name in enumerate(neg_names):
-        #         words = neg_name.split()
-        #         for word in words:
-        #             if word in self.model.vocab:
-        #                 raw_word = self.model[word]
-        #                 obj_neg_vecs[ix] += (raw_word / la.norm(raw_word))
-        #             else:
-        #                 print('Singular word found: ', word)
-        #                 raise NameError('Terminated.')
-        #         obj_neg_vecs[ix] /= len(words)
-        #         obj_neg_vecs[ix] /= la.norm(obj_neg_vecs[ix])
-        #     self.obj_name_to_neg_vecs[name] = obj_neg_vecs
-        #
-        # for name, neg_names in prd_neg_names.items():
-        #     prd_neg_vecs = \
-        #         np.zeros((len(neg_names), cfg.INPUT_LANG_EMBEDDING_DIM),
-        #                  dtype=np.float32)
-        #     for ix, neg_name in enumerate(neg_names):
-        #         words = neg_name.split()
-        #         for word in words:
-        #             if word in self.model.vocab:
-        #                 raw_word = self.model[word]
-        #                 prd_neg_vecs[ix] += (raw_word / la.norm(raw_word))
-        #             else:
-        #                 print('Singular word found: ', word)
-        #                 raise NameError('Terminated.')
-        #         prd_neg_vecs[ix] /= len(words)
-        #         prd_neg_vecs[ix] /= la.norm(prd_neg_vecs[ix])
-        #     self.prd_name_to_neg_vecs[name] = prd_neg_vecs
-
-        # 2. get word vectors for all categories
+        # get word vectors for all categories
         self.obj_vecs = np.zeros((len(self._object_categories),
                                  cfg.INPUT_LANG_EMBEDDING_DIM), dtype=np.float32)
         for ix, name in enumerate(_object_categories):
@@ -146,9 +97,6 @@ class visual_genome_spo_jn_mg_lan():
             self.prd_vecs[ix] /= len(words)
             self.prd_vecs[ix] /= la.norm(self.prd_vecs[ix])
 
-        # landb = dict(obj_name_to_neg_vecs=self.obj_name_to_neg_vecs,
-        #              prd_name_to_neg_vecs=self.prd_name_to_neg_vecs,
-        #              obj_vecs=self.obj_vecs, prd_vecs=self.prd_vecs)
         landb = dict(obj_vecs=self.obj_vecs, prd_vecs=self.prd_vecs)
         with open(cache_file, 'wb') as fid:
             cPickle.dump(landb, fid, cPickle.HIGHEST_PROTOCOL)

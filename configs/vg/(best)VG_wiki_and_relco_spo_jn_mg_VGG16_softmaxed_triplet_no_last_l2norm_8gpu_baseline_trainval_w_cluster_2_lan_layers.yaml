@@ -1,4 +1,4 @@
-DATASET: visual_genome_wiki_and_relco_spo_jn_mg
+DATASET: vg_wiki_and_relco_spo_jn_mg
 NUM_DEVICES: 8
 MODEL:
   TYPE: VGG16_reldn_fast_rcnn_conv4_spo_for_p
@@ -20,7 +20,7 @@ TEXT_EMBEDDING:
 INPUT_LANG_EMBEDDING_DIM: 600
 OUTPUT_EMBEDDING_DIM: 1024
 TRAIN:
-  PARAMS_FILE: /checkpoint02/zhangjixyz/data/coco_models/vgg16_model_final.pkl
+  PARAMS_FILE: /home/jizhang/ji/datasets01/large_scale_VRD/coco_models/vgg16_model_final.pkl
   DATA_TYPE: train
   BBOX_REG: False
   BBOX_NORMALIZE_TARGETS: False  # No bbox regression at the end
@@ -31,9 +31,9 @@ TRAIN:
   # SCALE_JITTER_TYPE: googleNet
   EVALUATION_FREQUENCY: 2500  # 50000
 TEST:
-  WEIGHTS: /checkpoint02/zhangjixyz/tmp_reldn/visual_genome_wiki_and_relco_spo_jn_mg/VGG16_reldn_fast_rcnn_conv4_spo_for_p/embd_fusion_w_relu_yall/8gpus_vgg16_softmaxed_triplet_no_last_l2norm_trainval_w_cluster_2_lan_layers/train/latest_final.pkl
+  WEIGHTS: /home/jizhang/ji/checkpoint02/visual_genome_wiki_and_relco_spo_jn_mg_2_lan_layers/latest_final.pkl
   DATA_TYPE: test
-  PROPOSAL_FILE: /checkpoint02/zhangjixyz/tmp_reldn/proposals/visual_genome/gt_proposals_test.pkl
+  PROPOSAL_FILE: /home/jizhang/ji/datasets01/large_scale_VRD/proposals/vg/gt_proposals_test.pkl
   BBOX_REG: False
 SOLVER:
   BASE_LR: 0.001

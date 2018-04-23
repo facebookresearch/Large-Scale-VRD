@@ -1,4 +1,4 @@
-DATASET: visual_genome_spo_jn_mg
+DATASET: vg_spo_jn_mg
 NUM_DEVICES: 8
 MODEL:
   TYPE: VGG16_reldn_fast_rcnn_conv4_spo_for_p

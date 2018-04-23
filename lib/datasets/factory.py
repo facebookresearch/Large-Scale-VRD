@@ -5,13 +5,11 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from datasets.visual_genome_spo_jn_mg import visual_genome_spo_jn_mg
-from datasets.visual_genome_spo_jn_mg_lan import visual_genome_spo_jn_mg_lan
+from datasets.vg_spo_jn_mg import vg_spo_jn_mg
+from datasets.vg_spo_jn_mg_lan import vg_spo_jn_mg_lan
 
-from datasets.visual_genome_wiki_and_relco_spo_jn_mg import \
-    visual_genome_wiki_and_relco_spo_jn_mg
-from datasets.visual_genome_wiki_and_relco_spo_jn_mg_lan import \
-    visual_genome_wiki_and_relco_spo_jn_mg_lan
+from datasets.vg_wiki_and_relco_spo_jn_mg import vg_wiki_and_relco_spo_jn_mg
+from datasets.vg_wiki_and_relco_spo_jn_mg_lan import vg_wiki_and_relco_spo_jn_mg_lan
 
 
 from datasets.vrd_wiki_and_node2vec import vrd_wiki_and_node2vec
@@ -21,18 +19,18 @@ __sets = {}
 __sets_lan = {}
 
 for split in ['train', 'val', 'test']:
-    name = 'visual_genome_spo_jn_mg_{}'.format(split)
-    __sets[name] = (lambda split=split: visual_genome_spo_jn_mg(split))
+    name = 'vg_spo_jn_mg_{}'.format(split)
+    __sets[name] = (lambda split=split: vg_spo_jn_mg(split))
 
-name = 'visual_genome_spo_jn_mg_lan'
-__sets_lan[name] = (lambda: visual_genome_spo_jn_mg_lan())
+name = 'vg_spo_jn_mg_lan'
+__sets_lan[name] = (lambda: vg_spo_jn_mg_lan())
 
 for split in ['train', 'val', 'test']:
-    name = 'visual_genome_wiki_and_relco_spo_jn_mg_{}'.format(split)
-    __sets[name] = (lambda split=split: visual_genome_wiki_and_relco_spo_jn_mg(split))
+    name = 'vg_wiki_and_relco_spo_jn_mg_{}'.format(split)
+    __sets[name] = (lambda split=split: vg_wiki_and_relco_spo_jn_mg(split))
 
-name = 'visual_genome_wiki_and_relco_spo_jn_mg_lan'
-__sets_lan[name] = (lambda: visual_genome_wiki_and_relco_spo_jn_mg_lan())
+name = 'vg_wiki_and_relco_spo_jn_mg_lan'
+__sets_lan[name] = (lambda: vg_wiki_and_relco_spo_jn_mg_lan())
 
 
 for split in ['train', 'val', 'test']:

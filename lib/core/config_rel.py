@@ -39,8 +39,8 @@ __C = AttrDict()
 cfg = __C
 
 # By Ji on 04/04/2018
-__C.DATA_DIR = b'/datasets01/large_scale_VRD'
-__C.OUTPUT_DIR = b'/checkpoint02/zhangjixyz/tmp_reldn'
+__C.DATA_DIR = b'/home/jizhang/ji/datasets01/large_scale_VRD'
+__C.OUTPUT_DIR = b'/home/jizhang/ji/checkpoint02'
 
 # By Ji on 10/14/2017
 # ---------------------------------------------------------------------------- #

@@ -1,4 +1,4 @@
-DATASET: visual_genome_wiki_and_relco_spo_jn_mg
+DATASET: vg_wiki_and_relco_spo_jn_mg
 NUM_DEVICES: 2
 MODEL:
   TYPE: VGG16_reldn_fast_rcnn_conv4_spo_for_p

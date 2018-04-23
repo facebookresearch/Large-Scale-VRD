@@ -4,7 +4,6 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 from core.config_rel import cfg
-from core.config_rel import get_output_dir
 
 import os
 import numpy as np
@@ -48,35 +47,11 @@ def _augment_gt_boxes_by_perturbation(unique_gt_boxes, im_width, im_height):
 
 def get_gt_perturbed_proposals(gt_roidb):
 
-    output_dir = os.path.join(cfg.OUTPUT_DIR, 'proposals')
-    if cfg.TRAIN.DATA_TYPE.find('tail_P') < 0:
-        if cfg.TRAIN.USE_FLIPPED:
-            proposal_name = 'gt_perturbed_proposals_flipped.pkl'
-        else:
-            proposal_name = 'gt_perturbed_proposals.pkl'
-    elif cfg.TRAIN.DATA_TYPE == 'tail_P':
-        if cfg.TRAIN.USE_FLIPPED:
-            proposal_name = 'gt_perturbed_proposals_tail_P_flipped.pkl'
-        else:
-            proposal_name = 'gt_perturbed_proposals_tail_P.pkl'
-    elif cfg.TRAIN.DATA_TYPE == 'tail_P_and_X':
-        if cfg.TRAIN.USE_FLIPPED:
-            proposal_name = 'gt_perturbed_proposals_tail_P_and_X_flipped.pkl'
-        else:
-            proposal_name = 'gt_perturbed_proposals_tail_P_and_X.pkl'
-    elif cfg.TRAIN.DATA_TYPE == 'train_and_tail_P':
-        if cfg.TRAIN.USE_FLIPPED:
-            proposal_name = 'gt_perturbed_proposals_train_and_tail_P_flipped.pkl'
-        else:
-            proposal_name = 'gt_perturbed_proposals_train_and_tail_P.pkl'
-    else:
-        raise NotImplementedError
+    data_dir = os.path.join(cfg.DATA_DIR, 'proposals')
     if cfg.DATASET.find('vrd') >= 0:
-        proposal_file_path = os.path.join(output_dir, 'vrd')
-    elif cfg.DATASET.find('zs') >= 0:
-        proposal_file_path = os.path.join(output_dir, cfg.DATASET)
+        proposal_file_path = os.path.join(data_dir, 'vrd')
     else:
-        proposal_file_path = os.path.join(output_dir, 'visual_genome')
+        proposal_file_path = os.path.join(data_dir, 'vg')
     if not os.path.exists(proposal_file_path):
         os.makedirs(proposal_file_path)
     proposal_file = os.path.join(proposal_file_path, proposal_name)

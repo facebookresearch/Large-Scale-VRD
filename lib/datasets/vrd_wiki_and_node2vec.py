@@ -252,7 +252,7 @@ class vrd_wiki_and_node2vec(imdb_rel):
 
     def get_widths_and_heights(self):
         cache_file = \
-            os.path.join(self._data_path, self.name + '_image_sizes.pkl')
+            os.path.join(self._data_path, 'vrd_' + self._image_set + '_image_sizes.pkl')
         if os.path.exists(cache_file):
             with open(cache_file, 'rb') as fid:
                 sizes = cPickle.load(fid)

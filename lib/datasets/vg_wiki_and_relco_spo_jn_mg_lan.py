@@ -23,7 +23,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class visual_genome_wiki_and_relco_spo_jn_mg_lan():
+class vg_wiki_and_relco_spo_jn_mg_lan():
     def __init__(self):
         self._data_path = os.path.join(cfg.DATA_DIR, 'Visual_Genome')
         assert os.path.exists(self._data_path), \
