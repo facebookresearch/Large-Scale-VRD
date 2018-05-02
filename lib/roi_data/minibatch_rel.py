@@ -18,7 +18,6 @@ import cv2
 from core.config_rel import cfg
 import utils.blob as blob_utils
 from utils.timer import Timer
-# By Ji on 10/14/2017
 from roi_data.fast_rcnn_rel import add_fast_rcnn_blobs
 
 import logging

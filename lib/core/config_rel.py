@@ -38,11 +38,9 @@ __C = AttrDict()
 #   from core.config import cfg
 cfg = __C
 
-# By Ji on 04/04/2018
-__C.DATA_DIR = b'/home/jizhang/ji/datasets01/large_scale_VRD'
-__C.OUTPUT_DIR = b'/home/jizhang/ji/checkpoint02'
+__C.DATA_DIR = b'datasets/large_scale_VRD'
+__C.OUTPUT_DIR = b'checkpoints'
 
-# By Ji on 10/14/2017
 # ---------------------------------------------------------------------------- #
 # Misc options
 # ---------------------------------------------------------------------------- #
@@ -68,7 +66,6 @@ __C.BBOX_XFORM_CLIP = np.log(1000. / 16.)
 # they were trained with
 __C.PIXEL_MEANS = np.array([[[102.9801, 115.9465, 122.7717]]])
 
-# By Ji on 12/01/2017
 # Scales to use during training (can list multiple scales)
 # Each scale is the pixel size of an image's shortest side
 __C.SCALES = (600,)
@@ -87,15 +84,12 @@ __C.TRAIN.WEIGHTS = b''
 # # Max pixel size of the longest side of a scaled input image
 # __C.TRAIN.MAX_SIZE = 1000
 # Images to use per minibatch
-# zhangjixyz change images per batch to 1 per image, was 2
 __C.TRAIN.IMS_PER_BATCH = 1
 # Minibatch size (number of regions of interest [ROIs])
-# zhangjixyz: increase batch size to 128 due to sampling, was 64
 __C.TRAIN.BATCH_SIZE_PER_IM = 128
 # Fraction of minibatch that is labeled foreground (i.e. class > 0)
 __C.TRAIN.FG_FRACTION = 0.25
 # Overlap threshold for a ROI to be considered foreground (if >= FG_THRESH)
-# By Ji on 07/27/2017
 __C.TRAIN.FG_THRESH = 0.5
 # Overlap threshold for a ROI to be considered background (class = 0 if
 # overlap in [LO, HI))
@@ -134,23 +128,18 @@ __C.TRAIN.COMPUTE_MEAN_STD = False
 __C.TRAIN.MARGIN_SO = 0.2
 __C.TRAIN.MARGIN_P = 0.2
 
-# By Ji on 01/23/2018
 __C.TRAIN.NORM_SCALAR = 5.0
 
-# By Ji on 02/06/2018
 __C.TRAIN.OVERSAMPLE = False
 __C.TRAIN.OVERSAMPLE_SO = False
 __C.TRAIN.LOW_SHOT_THRESHOLD = -1
 
-# By Ji on 02/24/2018
 __C.TRAIN.OVERSAMPLE2 = False
 __C.TRAIN.OVERSAMPLE_SO2 = False
 
-# By Ji on 02/14/2018
 __C.TRAIN.GENERATE = False
 __C.TRAIN.GENERATE2 = False
 
-# By Ji on 02/18/2018
 __C.TRAIN.ADD_LOSS_WEIGHTS = False
 __C.TRAIN.ADD_LOSS_WEIGHTS_SO = False
 

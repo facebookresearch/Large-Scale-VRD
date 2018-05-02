@@ -19,8 +19,6 @@ def add_fast_rcnn_blobs(
         blobs, im_scales, landb, roidb, roidb_inds, proposals, split, low_shot_helper):
     """Add blobs needed for training Fast R-CNN style models."""
     # Sample training RoIs from each image and append them to the blob lists
-    # By Ji on 02/27/2017
-    # if split != 'train' and split.find('tail_P') < 0:
     if split != 'train':
         assert proposals is not None, \
             'proposals should not be None during val/test.'
@@ -30,7 +28,6 @@ def add_fast_rcnn_blobs(
             sbj_gt_labels = entry['sbj_max_classes']
             obj_gt_labels = entry['obj_max_classes']
             rel_gt_labels = entry['rel_max_classes']
-            # By Ji on 12/20/2017
             sbj_gt_boxes = entry['sbj_boxes'] * scale
             obj_gt_boxes = entry['obj_boxes'] * scale
             rel_gt_boxes = entry['rel_boxes'] * scale
@@ -44,7 +41,7 @@ def add_fast_rcnn_blobs(
                 all_sbj_rois[:, 1:5] = proposals[im_i]['boxes_sbj'] * scale
                 all_obj_rois[:, 1:5] = proposals[im_i]['boxes_obj'] * scale
                 all_rel_rois[:, 1:5] = proposals[im_i]['boxes_rel'] * scale
-            else:  # By Ji on 12/27/2017: create dummy rois
+            else:  # create dummy rois
                 all_sbj_rois = np.zeros((1, 5), dtype=np.float32)
                 all_obj_rois = np.zeros((1, 5), dtype=np.float32)
                 all_rel_rois = np.zeros((1, 5), dtype=np.float32)

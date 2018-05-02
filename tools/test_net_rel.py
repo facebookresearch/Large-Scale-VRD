@@ -43,26 +43,14 @@ cv2.ocl.setUseOpenCL(False)
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='Train a network with Detectron'
+        description='Test a network'
     )
     parser.add_argument(
         '--cfg',
         dest='cfg_file',
-        help='Config file for training (and optionally testing)',
+        help='Config file for testing (and optionally testing)',
         default=None,
         type=str
-    )
-    parser.add_argument(
-        '--multi-gpu-testing',
-        dest='multi_gpu_testing',
-        help='Use cfg.NUM_GPUS GPUs for inference',
-        action='store_true'
-    )
-    parser.add_argument(
-        '--skip-test',
-        dest='skip_test',
-        help='Do not test the final model',
-        action='store_true'
     )
     parser.add_argument(
         'opts',

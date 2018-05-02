@@ -48,12 +48,13 @@ def _augment_gt_boxes_by_perturbation(unique_gt_boxes, im_width, im_height):
 def get_gt_perturbed_proposals(gt_roidb):
 
     data_dir = os.path.join(cfg.DATA_DIR, 'proposals')
-    if cfg.DATASET.find('vrd') >= 0:
-        proposal_file_path = os.path.join(data_dir, 'vrd')
-    else:
-        proposal_file_path = os.path.join(data_dir, 'vg')
-    if not os.path.exists(proposal_file_path):
-        os.makedirs(proposal_file_path)
+    # if cfg.DATASET.find('vrd') >= 0:
+    #     proposal_file_path = os.path.join(data_dir, 'vrd')
+    # else:
+    proposal_file_path = os.path.join(data_dir, 'vg')
+    proposal_name = 'gt_perturbed_proposals_flipped.pkl'
+    # if not os.path.exists(proposal_file_path):
+    #     os.makedirs(proposal_file_path)
     proposal_file = os.path.join(proposal_file_path, proposal_name)
     logger.info('proposal file: {}'.format(proposal_file))
     if os.path.exists(proposal_file):

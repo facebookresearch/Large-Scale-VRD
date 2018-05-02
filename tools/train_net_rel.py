@@ -15,7 +15,6 @@ import cv2  # NOQA (Must import before importing caffe2 due to bug in cv2)
 from core.config_rel import (cfg, load_params_from_file, load_params_from_list)
 from modeling import model_builder_rel
 import utils.c2
-import utils.train
 from utils.timer import Timer
 from utils.training_stats_rel import TrainingStats
 import utils.env as envu

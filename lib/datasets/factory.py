@@ -5,32 +5,22 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from datasets.vg_spo_jn_mg import vg_spo_jn_mg
-from datasets.vg_spo_jn_mg_lan import vg_spo_jn_mg_lan
-
-from datasets.vg_wiki_and_relco_spo_jn_mg import vg_wiki_and_relco_spo_jn_mg
-from datasets.vg_wiki_and_relco_spo_jn_mg_lan import vg_wiki_and_relco_spo_jn_mg_lan
-
+from datasets.vg_wiki_and_relco import vg_wiki_and_relco
+from datasets.vg_wiki_and_relco_lan import vg_wiki_and_relco_lan
 
 from datasets.vrd_wiki_and_node2vec import vrd_wiki_and_node2vec
 from datasets.vrd_wiki_and_node2vec_lan import vrd_wiki_and_node2vec_lan
+
 
 __sets = {}
 __sets_lan = {}
 
 for split in ['train', 'val', 'test']:
-    name = 'vg_spo_jn_mg_{}'.format(split)
-    __sets[name] = (lambda split=split: vg_spo_jn_mg(split))
+    name = 'vg_wiki_and_relco_{}'.format(split)
+    __sets[name] = (lambda split=split: vg_wiki_and_relco(split))
 
-name = 'vg_spo_jn_mg_lan'
-__sets_lan[name] = (lambda: vg_spo_jn_mg_lan())
-
-for split in ['train', 'val', 'test']:
-    name = 'vg_wiki_and_relco_spo_jn_mg_{}'.format(split)
-    __sets[name] = (lambda split=split: vg_wiki_and_relco_spo_jn_mg(split))
-
-name = 'vg_wiki_and_relco_spo_jn_mg_lan'
-__sets_lan[name] = (lambda: vg_wiki_and_relco_spo_jn_mg_lan())
+name = 'vg_wiki_and_relco_lan'
+__sets_lan[name] = (lambda: vg_wiki_and_relco_lan())
 
 
 for split in ['train', 'val', 'test']:

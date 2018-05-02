@@ -16,14 +16,11 @@ logger = logging.getLogger(__name__)
 DEBUG = False
 
 
-# By Ji on 07/19/2017
 def combined_roidb_for_val_test(dataset_names):
     def get_roidb(dataset_name):
 
         logger.info('loading roidb for {}'.format(dataset_name))
 
-        # By Ji on 06/18/2017
-        # cfg.DATA_DIR = '/mnt/vol/gfsai-east/ai-group/users/zhangjixyz/data/shdet'
         roidb_file = os.path.join(cfg.DATA_DIR, 'roidb_cache', dataset_name +
                                   '_configured_gt_roidb.pkl')
         if os.path.exists(roidb_file):
@@ -123,9 +120,6 @@ def combined_roidb_for_training(dataset_names, proposal_files):
 
         logger.info('loading roidb for {}'.format(dataset_name))
 
-        # By Ji on 06/18/2017
-        # cfg.DATA_DIR = '/mnt/vol/gfsai-east/ai-group/users/zhangjixyz/data/shdet'
-        # cfg.DATA_DIR = '/mnt/homedir/zhangjixyz/data'
         roidb_file = os.path.join(cfg.DATA_DIR, 'roidb_cache', dataset_name +
                                   '_configured_gt_roidb.pkl')
         if os.path.exists(roidb_file):
