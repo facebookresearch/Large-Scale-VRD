@@ -45,15 +45,15 @@ cd $Large-scale-VRD/lib && make
 
 ## Datasets
 
-1. Download datasets related files from `https://drive.google.com/open?id=1GCrVsCOozT_MO5H96OeeLm0q5N5FVTnX`. Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `datasets` folder unzipped there.
+1. Download datasets related files from [here](https://drive.google.com/open?id=1GCrVsCOozT_MO5H96OeeLm0q5N5FVTnX). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `datasets` folder unzipped there.
 
-2. Download Visual Genome images from http://visualgenome.org/api/v0/api_home.html. Unzip all images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Genome/images`.
+2. Download Visual Genome images from [here](http://visualgenome.org/api/v0/api_home.html). Unzip all images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Genome/images`.
 
-3. Download Visual Relationship Detection images from `https://cs.stanford.edu/people/ranjaykrishna/vrd/`. Put training images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Relation_Detection/train_images` and testing images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Relation_Detection/test_images`.
+3. Download Visual Relationship Detection images from [here](https://cs.stanford.edu/people/ranjaykrishna/vrd/). Put training images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Relation_Detection/train_images` and testing images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Relation_Detection/test_images`.
 
 ## Pretrained Models
 
-Download pretrained models from `https://drive.google.com/open?id=1GCrVsCOozT_MO5H96OeeLm0q5N5FVTnX`. Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `checkpoints` folder unzipped there.
+Download pretrained models from [here](https://drive.google.com/open?id=1GCrVsCOozT_MO5H96OeeLm0q5N5FVTnX). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `checkpoints` folder unzipped there.
 
 ## Training
 
