@@ -45,7 +45,7 @@ cd $Large-scale-VRD/lib && make
 
 ## Datasets
 
-1. Download datasets related files from [here](https://drive.google.com/open?id=1GCrVsCOozT_MO5H96OeeLm0q5N5FVTnX). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `datasets` folder unzipped there.
+1. Download datasets related files from [here](https://www.dropbox.com/s/minpyv59crdifk9/datasets.zip). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `datasets` folder unzipped there.
 
 2. Download Visual Genome images from [here](http://visualgenome.org/api/v0/api_home.html). Unzip all images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Genome/images`.
 
@@ -53,7 +53,7 @@ cd $Large-scale-VRD/lib && make
 
 ## Pretrained Models
 
-Download pretrained models from [here](https://drive.google.com/open?id=1GCrVsCOozT_MO5H96OeeLm0q5N5FVTnX). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `checkpoints` folder unzipped there.
+Download pretrained models from [here](https://www.dropbox.com/s/t5b1b2odn781035/checkpoints.zip). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `checkpoints` folder unzipped there.
 
 ## Training
 
