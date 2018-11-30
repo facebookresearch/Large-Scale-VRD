@@ -1,6 +1,6 @@
 # Large-scale Visual Relationship Understanding
 
-This is the Caffe2 implementation for Large-scale Visual Relationship Understanding, Ji Zhang, Yannis Kalantidis, Marcus Rohrbach, Manohar Paluri, Ahmed Elgammal, Mohamed Elhoseiny
+This is the Caffe2 implementation for [Large-scale Visual Relationship Understanding](https://arxiv.org/abs/1804.10660).
 
 
 ## Caffe2
