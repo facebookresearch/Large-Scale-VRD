@@ -2,7 +2,6 @@
 
 This is the Caffe2 implementation for [Large-scale Visual Relationship Understanding](https://arxiv.org/abs/1804.10660).
 
-
 ## Caffe2
 
 To install Caffe2 with CUDA support, follow the [installation instructions](https://caffe2.ai/docs/getting-started.html) from the [Caffe2 website](https://caffe2.ai/). **If you already have Caffe2 installed, make sure to update your Caffe2 to a version that includes the [Detectron module](https://github.com/caffe2/caffe2/tree/master/modules/detectron).**
