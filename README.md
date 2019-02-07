@@ -44,17 +44,21 @@ Set up Python modules:
 cd $Large-scale-VRD/lib && make
 ```
 
-## Datasets
-
-Download VG80K images from [here](http://visualgenome.org/api/v0/api_home.html). Unzip all images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Genome/images`.
-
 ## Annotations
 
 Download VG annotation files from [here](https://www.dropbox.com/s/minpyv59crdifk9/datasets.zip). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `datasets` folder unzipped there.
 
-## Pretrained Models
+## Datasets
 
-Download pretrained models from [here](https://www.dropbox.com/s/t5b1b2odn781035/checkpoints.zip). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `checkpoints` folder unzipped there.
+Download VG80K images from [here](http://visualgenome.org/api/v0/api_home.html). Unzip all images into `$Large-scale-VRD/datasets/large_scale_VRD/Visual_Genome/images`.
+
+## Pretrained Embedding Models
+
+Download pretrained embeddings from [here](https://www.dropbox.com/s/r6uh5n9h76k41w7/Ji%20Zhang%20-%20embeddings.zip). Put the zip file under `$Large-scale-VRD/datasets/large_scale_VRD` and unzip it. You should see a "label_embeddings" folder and a "models" folders there.
+
+## Our Trained Models
+
+You can download our trained models from [here](https://www.dropbox.com/s/t5b1b2odn781035/checkpoints.zip). Put the zip file under `$Large-scale-VRD` and unzip it. You should see a `checkpoints` folder unzipped there.
 
 ## Training
 
