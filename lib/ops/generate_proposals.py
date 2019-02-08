@@ -6,7 +6,7 @@
 
 import numpy as np
 
-from core.config import cfg
+from core.config_rel import cfg
 import utils.boxes as box_utils
 
 
