@@ -11,7 +11,7 @@ from __future__ import unicode_literals
 
 import numpy as np
 
-from core.config import cfg
+from core.config_rel import cfg
 from datasets import json_dataset
 import modeling.FPN as fpn
 import roi_data.fast_rcnn
