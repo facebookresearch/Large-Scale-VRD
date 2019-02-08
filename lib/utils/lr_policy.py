@@ -13,7 +13,7 @@ from __future__ import unicode_literals
 
 import numpy as np
 
-from core.config import cfg
+from core.config_rel import cfg
 
 
 def get_lr_at_iter(it):
