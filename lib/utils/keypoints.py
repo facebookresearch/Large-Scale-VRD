@@ -14,7 +14,7 @@ from __future__ import unicode_literals
 import cv2
 import numpy as np
 
-from core.config import cfg
+from core.config_rel import cfg
 import utils.blob as blob_utils
 
 
