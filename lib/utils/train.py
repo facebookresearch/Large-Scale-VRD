@@ -29,8 +29,8 @@ import re
 from caffe2.python import memonger
 from caffe2.python import workspace
 
-from core.config import cfg
-from core.config import get_output_dir
+from core.config_rel import cfg
+from core.config_rel import get_output_dir
 from datasets.roidb import combined_roidb_for_training
 from modeling import model_builder
 from utils import lr_policy
