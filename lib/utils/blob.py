@@ -26,7 +26,7 @@ import numpy as np
 
 from caffe2.proto import caffe2_pb2
 
-from core.config import cfg
+from core.config_rel import cfg
 
 
 def get_image_blob(im, target_scale, target_max_size):
