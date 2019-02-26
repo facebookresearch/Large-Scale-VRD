@@ -31,7 +31,7 @@ TRAIN:
   # SCALE_JITTER_TYPE: googleNet
   EVALUATION_FREQUENCY: 2500  # 50000
 TEST:
-  WEIGHTS: checkpoints/vg_wiki_and_relco_2_lan_layers/latest_final.pkl
+  WEIGHTS: checkpoints/vg_wiki_and_relco/latest_final.pkl
   DATA_TYPE: test
   PROPOSAL_FILE: datasets/large_scale_VRD/proposals/vg/gt_proposals_test.pkl
   BBOX_REG: False
