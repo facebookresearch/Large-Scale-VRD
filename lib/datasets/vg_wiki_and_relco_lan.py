@@ -72,7 +72,7 @@ class vg_wiki_and_relco_lan():
         self.relco_model = gensim.models.Word2Vec.load(
             cfg.DATA_DIR + '/label_embeddings/vg_300d_skipgram_rel')
         print('Model loaded.')
-        self.relco_vec_mean = self.relco_model.syn0.mean(axis=0)
+        self.relco_vec_mean = self.relco_model.wv.syn0.mean(axis=0)
         # change everything into lowercase
         for key in self.relco_model.vocab.keys():
             new_key = key.lower()
