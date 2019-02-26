@@ -34,9 +34,9 @@ from core.config_rel import get_output_dir
 from datasets.roidb import combined_roidb_for_training
 from modeling import model_builder
 from utils import lr_policy
-from utils.training_stats import TrainingStats
+from utils.training_stats_rel import TrainingStats
 import utils.env as envu
-import utils.net as nu
+import utils.net_rel as nu
 
 
 def train_model():
