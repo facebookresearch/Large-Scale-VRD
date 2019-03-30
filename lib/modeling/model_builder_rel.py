@@ -42,6 +42,7 @@ from modeling import (
 
 from core.config_rel import cfg
 from core.get_gt_perturbed_proposals import get_gt_perturbed_proposals
+from core.get_val_test_proposals import get_gt_val_test_proposals
 from modeling.detector_rel import DetectionModelHelper
 from roi_data.loader_rel import RoIDataLoader
 from datasets.roidb_rel import combined_roidb_for_training
