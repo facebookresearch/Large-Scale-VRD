@@ -145,9 +145,9 @@ class vg_wiki_and_relco(imdb_rel):
         self.relco_vec_mean = self.relco_model.wv.syn0.mean(axis=0)
         # change everything into lowercase
         # for key in self.model.wv.vocab.keys():
-        for key in self.relco_model.vocab.keys():
+        for key in self.relco_model.wv.vocab.keys():
             new_key = key.lower()
-            self.relco_model.vocab[new_key] = self.relco_model.vocab.pop(key)
+            self.relco_model.wv.vocab[new_key] = self.relco_model.wv.vocab.pop(key)
         print('Relco words converted to lowercase.')
 
         rel_data_path = os.path.join(
@@ -255,7 +255,7 @@ class vg_wiki_and_relco(imdb_rel):
             sbj_vecs_relco = np.zeros(half_dim, dtype=np.float32)
             sbj_words = sbj_names[ix].split()
             for word in sbj_words:
-                if word in self.relco_model.vocab:
+                if word in self.relco_model.wv.vocab:
                     raw_word = self.relco_model[word]
                     sbj_vecs_relco += (raw_word / la.norm(raw_word))
                 else:
@@ -283,7 +283,7 @@ class vg_wiki_and_relco(imdb_rel):
             obj_vecs_relco = np.zeros(half_dim, dtype=np.float32)
             obj_words = obj_names[ix].split()
             for word in obj_words:
-                if word in self.relco_model.vocab:
+                if word in self.relco_model.wv.vocab:
                     raw_word = self.relco_model[word]
                     obj_vecs_relco += (raw_word / la.norm(raw_word))
                 else:
@@ -311,7 +311,7 @@ class vg_wiki_and_relco(imdb_rel):
             prd_vecs_relco = np.zeros(half_dim, dtype=np.float32)
             prd_words = prd_names[ix].split()
             for word in prd_words:
-                if word in self.relco_model.vocab:
+                if word in self.relco_model.wv.vocab:
                     raw_word = self.relco_model[word]
                     prd_vecs_relco += (raw_word / la.norm(raw_word))
                 else:
